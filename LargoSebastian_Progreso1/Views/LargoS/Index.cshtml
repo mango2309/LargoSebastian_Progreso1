@@ -1,0 +1,59 @@
+﻿@model IEnumerable<LargoSebastian_Progreso1.Models.LargoS>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Entero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Decimal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Palabra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VerdaderoFalso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Entero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Decimal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Palabra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VerdaderoFalso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdNombre">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdNombre">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdNombre">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using LargoSebastian_Progreso1.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<LargoSebastian_Progreso1Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LargoSebastian_Progreso1Context") ?? throw new InvalidOperationException("Connection string 'LargoSebastian_Progreso1Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
